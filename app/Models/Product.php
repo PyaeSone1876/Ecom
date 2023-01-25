@@ -16,6 +16,7 @@ class Product extends Model
         'image',
         'description',
         'color',
+        'size',
     ];
 
     // protected function image(): Attribute

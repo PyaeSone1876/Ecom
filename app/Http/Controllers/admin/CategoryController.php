@@ -1,29 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Client;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 
-class ClientController extends Controller
+class CategoryController extends Controller
 {
-
-    public function Clientlogin(Request $request)
-    {
-        if(Auth::attempt($request->all())){
-            return response()->json([
-                'message' => 'successully login'
-            ]);
-        } else {
-            return response()->json([
-                'message' => 'fail login'
-            ]);
-        }
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -31,8 +15,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients= Client::all();
-        return view('admin.client.ClientIndex',compact('clients'));
+        $category=Category::all();
+        return view('admin.category.CategoryIndex',compact('category'));
+
     }
 
     /**
@@ -42,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin.client.CreateClient');
+        return view('admin.category.CreateCategory');
     }
 
     /**
@@ -53,12 +38,10 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create([
+        Category::create([
             'name'=> $request->name,
-            'email'=>$request->email,
-            'password'=>$request->password
         ]);
-        return redirect('/clients',);
+        return redirect('/categories',);
     }
 
     /**
@@ -69,7 +52,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        
+       
     }
 
     /**
@@ -80,8 +63,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $clients= Client::find($id);
-        return view('admin.client.EditClient',compact('clients'));
+        $category= Category::find($id);
+        return view('admin.category.EditCategory',compact('category'));
     }
 
     /**
@@ -93,13 +76,12 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clients= Client::find($id);
-        $clients->update([
+        
+        $category= Category::find($id);
+        $category->update([
             'name'=>$request->name,
-            'email'=> $request->email,
-            'password'=>$request->password
         ]);
-        return redirect('/clients');
+        return redirect('/categories');
     }
 
     /**
@@ -110,10 +92,8 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $clients = Client::find($id);
-        $clients->delete();
-        return redirect('/clients');
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('/categories');
     }
-
-    
 }

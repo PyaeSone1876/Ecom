@@ -24,6 +24,9 @@
                         <label for="">Color</label>
                         <input type="text" name="color" value="" class="form-control"> <br>
 
+                        <label for="">Size</label>
+                        <input type="text" name="size" value="" class="form-control"> <br>
+
                         <button class="btn btn-primary">Create</button>
                 </form>
             </div>

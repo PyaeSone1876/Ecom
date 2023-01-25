@@ -30,6 +30,10 @@
                         <label for="">Color</label>
                         <input type="text" name="color" value="{{ $products->color }}" class="form-control"> <br>
 
+
+                        <label for="">Size</label>
+                        <input type="text" name="size" value="{{ $products->size }}" class="form-control"> <br>
+
                         <button class="btn btn-primary">Update</button>
                 </form>
             </div>

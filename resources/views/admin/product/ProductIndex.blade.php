@@ -16,6 +16,7 @@
                             <th>Image</th>
                             <th>Descritpion</th>
                             <th>Color</th>
+                            <th>Size</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -34,6 +35,7 @@
                                 </td>
                                 <td>{{ $products->description }}</td>
                                 <td>{{ $products->color }}</td>
+                                <td>{{ $products->size }}</td>
                                 <td>
                                     <form action="{{ url('products/ ' . $products->id . '/delete') }}" method="POST">
                                         @csrf

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,9 @@ Route::post('/products/{id}/delete',[ProductController::class,'delete']);
 
 //client
 Route::resource('clients',ClientController::class);
+
+//category
+Route::resource('categories',CategoryController::class);
 
 
 

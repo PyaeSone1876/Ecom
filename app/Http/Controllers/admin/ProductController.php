@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -37,6 +36,7 @@ class ProductController extends Controller
             'image'=> $link ?? $products->image,
             'description' => $request->description,
             'color' => $request->color,
+            'size' => $request->size,
 
         ]);
         return redirect('/products');
@@ -61,6 +61,7 @@ class ProductController extends Controller
             'image'=> $link ?? $products->image,
             'description' => $request->description,
             'color' => $request->color,
+            'size' => $request->size,
         ]);
         return redirect('/products');    }
 

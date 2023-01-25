@@ -10,9 +10,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+
+
     <style>
         .sidenav {
-            width: 112px;
+            width: 84px;
             height: 100%;
             position: fixed;
             background-color: rgb(160, 156, 156);
@@ -22,25 +24,34 @@
             text-decoration: none;
             display: block;
             padding: 10px;
-            font-size: 20px;
+            font-weight: 300;
+            font-size: 16px;
             color: black;
+        }
+
+        .sidenav a:hover {
+            transform: scale(1.1);
+            color: white;
+            background-color: blueviolet;
         }
 
         #product-image:hover {
             transform: scale(5);
         }
     </style>
+
+
 </head>
 
 <body>
-    {{-- laravel nav --}}
+    <!-- {{-- laravel nav --}}
     {{-- <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Admin Dashboard') }}
             </h2>
         </x-slot>
-    </x-app-layout> --}}
+    </x-app-layout> --}} -->
 
 
     {{-- navbar --}}
@@ -82,8 +93,11 @@
     <div class="sidenav">
         <a href="{{ url('/users') }}">User</a>
         <a href="{{ url('/products') }}">Product</a>
-        <a href="">order</a>
-        <a href="">stock</a>
+        <a href="{{ url('/clients') }}">Clinet</a>
+        <a href="{{ url('/categories') }}">Category</a>
+        <a href="">Invoice</a>
+        <a href="">Order</a>
+        <a href="">Stock</a>
     </div>
 
     {{-- body --}}
@@ -94,6 +108,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+
 </body>
 
 </html>

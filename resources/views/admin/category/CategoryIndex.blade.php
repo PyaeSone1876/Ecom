@@ -4,29 +4,24 @@
         <div class="rol">
             <div class="col-md-12">
                 <br>
-                <a href="{{url('/clients/create')}}" class="btn btn-success">Create Clients</a>
+                <a href="{{url('/categories/create')}}" class="btn btn-success">Create Category</a>
                 <br><br>
                 <table class=" table table-bordered table-hover ml-12">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                       @foreach ($clients as $clients )                        
+                       @foreach ($category as $category )                        
                             <tr>
-                                <td>{{$clients->id}}</td>
-                                <td>{{$clients->name}}</td>
-                                <td>{{$clients->email}}</td>
-                                <td>{{$clients->password}}</td>
+                                <td>{{$category->id}}</td>
+                                <td>{{$category->name}}</td>
                                 <td>
-                                    <form action="{{url('clients/ '. $clients->id .'')}}" method="POST">
+                                    <form action="{{url('categories/ '. $category->id .'')}}" method="POST">
                                         @csrf @method('DELETE')
-                                        <a class="btn btn-info" href="{{url('clients/ '. $clients->id .'/edit')}}">Edit</a>
+                                        <a class="btn btn-info" href="{{url('categories/ '. $category->id .'/edit')}}">Edit</a>
                                         <button type="submit" onclick="return confirm('Are You sure you want to delete')" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>

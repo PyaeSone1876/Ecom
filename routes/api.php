@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\admin\ClientController;
-
+use App\Http\Controllers\api\ApiProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +31,8 @@ Route::post("Ulogin",[AuthController::class,'loginUser']);
 Route::get("test",[AuthController::class,'test'])->middleware('auth:api');
 
 //testing product 
-
+Route::get("product",[ApiProductController::class,'ProductAPI']);
+Route::get("searchcategory",[ApiProductController::class,'SearchByCategoryID']);
+Route::get("category",[ApiProductController::class,'Category']);
 
 

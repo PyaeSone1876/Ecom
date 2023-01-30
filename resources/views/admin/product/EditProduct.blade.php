@@ -10,6 +10,17 @@
                         <label for="">Name</label>
                         <input type="text" name="name" value="{{ $products->name }}" class="form-control"> <br>
 
+                        <label for="">Category :</label>
+                        <select class="btn btn-dark" id="" name="category_id">
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+
+                            <option value="" selected></option>
+                        </select>
+                        <br>
+
+                        <br>
                         <label for="">Price</label>
                         <input type="number" name="price" value="{{ $products->price }}" class="form-control"><br>
 

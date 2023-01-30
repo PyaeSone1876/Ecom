@@ -1,23 +1,15 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name', 
-        'price',
-        'image',
-        'description',
-        'color',
-        'size',
-    ];
+    protected $fillable = ['name', 'price', 'image', 'description', 'color', 'size', 'category_id'];
 
     // protected function image(): Attribute
     // {
@@ -25,4 +17,9 @@ class Product extends Model
     //         get: fn ($value) => Storage::url($value)
     //     );
     // }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

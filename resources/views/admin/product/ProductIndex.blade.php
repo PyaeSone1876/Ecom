@@ -1,6 +1,6 @@
 @extends('dashboard')
 @section('content')
-    <div class="container ">
+    <div class="container">
         <div class="rol">
             <div class="col-md-12">
                 <br>
@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Category</th>
                             <th>Name</th>
                             <th>price</th>
                             <th>Image</th>
@@ -24,6 +25,7 @@
                         @foreach ($products as $products)
                             <tr>
                                 <td>{{ $products->id }}</td>
+                                <td>{{ $products->category_name }}</td>
                                 <td>{{ $products->name }}</td>
                                 <td>{{ $products->price }}</td>
                                 <td class="w-25">

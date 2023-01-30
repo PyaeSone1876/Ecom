@@ -1,14 +1,19 @@
 <?php
 namespace App\Http\Controllers\admin;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductController extends Controller
 {
     public function index(){
         $products=Product::all();
+        foreach($products as $product){
+            $product->category_name = $product->category ? $product->category->name : '';
+        }
         return view('admin.product.ProductIndex', compact('products'));
     }
 
@@ -17,8 +22,8 @@ class ProductController extends Controller
     }
 
     public function create(Request $request){
-
-        return view('admin.product.CreateProduct');
+        $categories = Category::all();
+        return view('admin.product.CreateProduct', compact('categories'));
     }
 
     public function store(Request $request){
@@ -32,6 +37,7 @@ class ProductController extends Controller
 
             Product::create([
             'name'=> $request->name,
+            'category_id'=>$request->category_id,
             'price'=> $request->price,
             'image'=> $link ?? $products->image,
             'description' => $request->description,
@@ -44,7 +50,8 @@ class ProductController extends Controller
 
     public function edit($id){
         $products=Product::find($id);
-        return view('admin.product.EditProduct' , compact('products'));
+        $categories=Category::all();
+        return view('admin.product.EditProduct' , compact('products','categories'));
     }
 
     public function update(Request $request,$id){
@@ -57,6 +64,7 @@ class ProductController extends Controller
         $products = Product::find($id);
         $products->update([
             'name'=>$request->name,
+            
             'price'=> $request->price,
             'image'=> $link ?? $products->image,
             'description' => $request->description,

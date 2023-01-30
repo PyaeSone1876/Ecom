@@ -10,6 +10,9 @@ class ApiProductController extends Controller
     public function ProductAPI (Request $request){
         
         $products=Product::with('category')->get();
+        $products->map(function ($product) {
+            $product->image = config('app.url') . '/storage/' . $product->image;
+        });
         return response()->json(
             $products,200
         );

@@ -30,7 +30,7 @@
                                 <td>{{ $products->price }}</td>
                                 <td class="w-25">
                                     <span>
-                                        <img src="http://localhost:8000{{ Storage::url($products->image) }}"
+                                        <img src="{{ env('APP_URL') . Storage::url($products->image) }}"
                                             class="img-fluid img-thumbnail w-25" id="product-image">
                                         {{-- <img src="{{ asset($products->image) }}"> --}}
                                     </span>
